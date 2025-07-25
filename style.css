@@ -107,23 +107,6 @@ nav .logo {
     color: white;
 }
 
-.hero-content {
-    background-color: rgba(43, 42, 42, 0.4);
-    padding: 2rem 3rem;
-    border-radius: 5px;
-}
-
-.hero h1 {
-    font-size: 3.8rem;
-    margin: 0;
-    color: white;
-}
-
-.hero p {
-    font-size: 1.3rem;
-    margin-bottom: 2rem;
-    font-weight: 300;
-}
 
 /* --- GENERAL SECTION STYLING --- */
 section {

@@ -1,13 +1,15 @@
 /* --- VARIABLES & GENERAL STYLING --- */
 :root {
-    --background-color: #f8f7f4;
-    --primary-text: #3d405b;
-    --secondary-text: #6c757d;
-    --accent-color: #a5a58d;
-    --accent-hover: #8f8f74;
-    --light-gray: #ffffff;
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'Poppins', sans-serif;
+    --background-color: #F5F5DC; /* Beige */
+    --primary-text: #333333; /* Dark Gray */
+    --secondary-text: #6c757d; /* Keeping a slightly lighter gray for secondary text */
+    --accent-color: #AEC6CF; /* Soft Blue */
+    --accent-hover: #98b6c0;
+    --cta-bg: #FFFACD; /* Muted Yellow */
+    --cta-hover: #fff8b8;
+    --light-gray: #F0F0F0; /* Very Light Gray */
+    --font-heading: 'Lexend', sans-serif;
+    --font-body: 'Lexend', sans-serif;
     --shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
@@ -22,8 +24,9 @@ body {
     padding: 0;
     background-color: var(--background-color);
     color: var(--primary-text);
-    line-height: 1.7;
+    line-height: 1.6;
     font-weight: 300;
+    font-size: 18px;
 }
 
 /* --- TYPOGRAPHY --- */
@@ -84,15 +87,15 @@ nav .logo {
 }
 
 .nav-cta {
-    background-color: var(--accent-color);
-    color: white !important;
+    background-color: var(--cta-bg);
+    color: var(--primary-text) !important;
     padding: 0.5rem 1rem;
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
 
 .nav-cta:hover {
-    background-color: var(--accent-hover);
+    background-color: var(--cta-hover);
 }
 
 /* --- HERO SECTION --- */
@@ -110,7 +113,7 @@ nav .logo {
 
 /* --- GENERAL SECTION STYLING --- */
 section {
-    padding: 5rem 5%;
+    padding: 6rem 5%;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -246,8 +249,8 @@ form input, form textarea {
 
 /* --- CTA BUTTON --- */
 .cta-button {
-    background-color: var(--accent-color);
-    color: white;
+    background-color: var(--cta-bg);
+    color: var(--primary-text);
     padding: 1rem 2rem;
     text-decoration: none;
     border-radius: 5px;
@@ -258,7 +261,7 @@ form input, form textarea {
     font-size: 1.1rem;
     transition: background-color 0.3s ease;
 }
-.cta-button:hover { background-color: var(--accent-hover); }
+.cta-button:hover { background-color: var(--cta-hover); }
 
 .cta-container {
     text-align: center;
@@ -266,14 +269,35 @@ form input, form textarea {
 }
 
 /* --- FOOTER --- */
-footer { background-color: var(--primary-text); color: white; text-align: center; }
+footer { background-color: var(--primary-text); color: var(--background-color); text-align: center; }
 .footer-content { padding: 3rem 5%; }
-.footer-content h3 { color: white; }
+.footer-content h3 { color: var(--background-color); }
 .footer-bottom { background-color: rgba(0,0,0,0.1); padding: 1rem 5%; font-size: 0.9rem; }
 .footer-bottom p, .footer-content p { margin: 0; }
 .footer-content .cta-button { margin-top: 1rem; }
 
 /* --- ACCESSIBILITY --- */
+#accessibility-toolbar {
+    background-color: #333;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+#accessibility-toolbar button {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+}
+
+.high-contrast {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+
 a:focus-visible, button:focus-visible {
     outline: 2px solid var(--accent-color);
     outline-offset: 2px;

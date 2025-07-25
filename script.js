@@ -1,4 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Accessibility toolbar functionality
+    const increaseFontButton = document.getElementById('increase-font');
+    const decreaseFontButton = document.getElementById('decrease-font');
+    const highContrastButton = document.getElementById('high-contrast');
+    const body = document.body;
+
+    increaseFontButton.addEventListener('click', () => {
+        changeFontSize(1);
+    });
+
+    decreaseFontButton.addEventListener('click', () => {
+        changeFontSize(-1);
+    });
+
+    highContrastButton.addEventListener('click', () => {
+        body.classList.toggle('high-contrast');
+    });
+
+    function changeFontSize(direction) {
+        const currentSize = parseFloat(window.getComputedStyle(body, null).getPropertyValue('font-size'));
+        body.style.fontSize = (currentSize + direction) + 'px';
+    }
+
     const hamburgerMenu = document.getElementById('hamburger-menu');
     const mobileNavMenu = document.getElementById('mobile-nav-menu');
 

@@ -113,7 +113,7 @@ nav .logo {
     text-align: center;
     height: 90vh;
     /* UPDATED: Using your brand image as the background */
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('image_new.png') no-repeat center center/cover;
+    background: url('image_new.png') no-repeat center center/cover;
     color: white;
 }
 
@@ -390,9 +390,11 @@ a:focus-visible, button:focus-visible {
             <div class="hero-content">
                 <h1>Impress Yourself</h1>
                 <p>Your journey to self-improvement starts here.</p>
-                <a href="#contact" class="cta-button">Get Started</a>
             </div>
         </section>
+        <div style="text-align: center; padding: 2rem;">
+            <a href="#contact" class="cta-button">Get Started</a>
+        </div>
 
         <section id="about">
             <div class="about-container">
@@ -419,6 +421,14 @@ a:focus-visible, button:focus-visible {
                 <div class="service-card">
                     <h3>Online Courses</h3>
                     <p>Self-paced online courses to learn and grow at your own convenience.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Career Counseling</h3>
+                    <p>Guidance and support for navigating your career path and making meaningful changes.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Mindfulness Training</h3>
+                    <p>Learn to cultivate mindfulness and reduce stress for a more balanced life.</p>
                 </div>
             </div>
         </section>
@@ -494,7 +504,7 @@ a:focus-visible, button:focus-visible {
         <section id="contact">
             <h2>Ready to Impress Yourself?</h2>
             <p>Let's connect and explore how we can work together to unlock your full potential. Schedule a free discovery call today.</p>
-            <a href="mailto:hello@impressyourself.com" class="cta-button">Schedule a Free Call</a>
+            <a href="#contact" class="cta-button">Book a Consultation</a>
             <div class="contact-divider">OR</div>
             <p>If you have other questions, feel free to send us a message using the form below.</p>
             <form action="#">
@@ -513,7 +523,7 @@ a:focus-visible, button:focus-visible {
             <a href="#contact" class="cta-button">Get Started Today</a>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Impress Yourself. All Rights Reserved.</p>
+            <p>&copy; 2024 Impress Yourself. All Rights Reserved. | <a href="terms.html" style="color: white;">Terms of Use</a> | <a href="privacy.html" style="color: white;">Privacy Policy</a></p>
         </div>
     </footer>
 

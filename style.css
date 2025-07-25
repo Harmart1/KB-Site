@@ -260,6 +260,11 @@ form input, form textarea {
 }
 .cta-button:hover { background-color: var(--accent-hover); }
 
+.cta-container {
+    text-align: center;
+    padding: 2rem;
+}
+
 /* --- FOOTER --- */
 footer { background-color: var(--primary-text); color: white; text-align: center; }
 .footer-content { padding: 3rem 5%; }

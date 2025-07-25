@@ -86,4 +86,47 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Before/After slider functionality
+    const slider = document.querySelector('.before-after-slider');
+    if (slider) {
+        const handle = slider.querySelector('.slider-handle');
+        const beforeImageContainer = slider.querySelector('.before-image-container');
+
+        let isDragging = false;
+
+        const startDrag = (e) => {
+            isDragging = true;
+            slider.classList.add('dragging');
+            updateSlider(e);
+        };
+
+        const stopDrag = () => {
+            isDragging = false;
+            slider.classList.remove('dragging');
+        };
+
+        const updateSlider = (e) => {
+            if (!isDragging) return;
+
+            const sliderRect = slider.getBoundingClientRect();
+            let offsetX = (e.clientX || e.touches[0].clientX) - sliderRect.left;
+            let percentage = (offsetX / sliderRect.width) * 100;
+
+            // Clamp the percentage between 0 and 100
+            percentage = Math.max(0, Math.min(100, percentage));
+
+            handle.style.left = `${percentage}%`;
+            beforeImageContainer.style.width = `${percentage}%`;
+        };
+
+        handle.addEventListener('mousedown', startDrag);
+        document.addEventListener('mouseup', stopDrag);
+        document.addEventListener('mouseleave', stopDrag);
+        slider.addEventListener('mousemove', updateSlider);
+
+        handle.addEventListener('touchstart', startDrag);
+        document.addEventListener('touchend', stopDrag);
+        slider.addEventListener('touchmove', updateSlider);
+    }
 });

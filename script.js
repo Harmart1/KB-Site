@@ -54,4 +54,40 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Estimator functionality
+    const roomCheckboxes = document.querySelectorAll('input[name="room"]');
+    const estimatedTimeEl = document.getElementById('estimated-time');
+    const estimatedCostEl = document.getElementById('estimated-cost');
+
+    const roomHours = {
+        kitchen: 8,
+        pantry: 4,
+        closet: 6,
+        bedroom: 6,
+        basement: 12,
+        garage: 12
+    };
+    const hourlyRate = 50; // Example hourly rate
+
+    function updateEstimate() {
+        let totalHours = 0;
+        roomCheckboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                totalHours += roomHours[checkbox.value] || 0;
+            }
+        });
+
+        const totalCost = totalHours * hourlyRate;
+
+        estimatedTimeEl.textContent = `${totalHours} hours`;
+        estimatedCostEl.textContent = `$${totalCost}`;
+    }
+
+    roomCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', updateEstimate);
+    });
+
+    // Initial calculation on page load
+    updateEstimate();
 });

@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impress Yourself</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
 /* --- VARIABLES & GENERAL STYLING --- */
 :root {
     --background-color: #f8f7f4;
@@ -61,6 +71,7 @@ nav {
     margin: 0 auto;
 }
 
+/* UPDATED: Styles for the new text-based logo */
 nav .logo {
     font-family: var(--font-body);
     font-size: 1.2rem;
@@ -101,7 +112,8 @@ nav .logo {
     align-items: center;
     text-align: center;
     height: 90vh;
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://i.ibb.co/9v0g22n/impress-yourself-hero.jpg') no-repeat center center/cover;
+    /* UPDATED: Using your brand image as the background */
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('image_new.png') no-repeat center center/cover;
     color: white;
 }
 
@@ -234,7 +246,7 @@ section {
 }
 .faq-answer p { padding-bottom: 1rem; margin: 0; }
 
-/* --- CONTACT SECTION --- */
+/* --- CONTACT SECTION (UPDATED) --- */
 #contact { background-color: var(--light-gray); text-align: center; }
 #contact p { max-width: 600px; margin: -2rem auto 2rem; }
 form {
@@ -258,7 +270,6 @@ form input, form textarea {
     font-weight: 600;
     color: var(--secondary-text);
 }
-
 
 /* --- CTA BUTTON --- */
 .cta-button {
@@ -317,7 +328,7 @@ a:focus-visible, button:focus-visible {
         flex-direction: column;
         align-items: center;
         position: absolute;
-        top: 72px; 
+        top: 72px;
         left: 0;
         width: 100%;
         background: var(--background-color);
@@ -329,7 +340,7 @@ a:focus-visible, button:focus-visible {
     .mobile-nav.active { transform: translateY(0); }
     .mobile-nav a { padding: 1rem; width: 100%; text-align: center; color: var(--primary-text); font-weight: 600; text-decoration: none; }
     .mobile-nav a:hover { background-color: #f0efeb; color: var(--accent-color); }
-    
+
     .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
     .hamburger.active span:nth-child(2) { opacity: 0; }
     .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
@@ -342,5 +353,170 @@ a:focus-visible, button:focus-visible {
     h2 { font-size: 2.2rem; }
     .hero h1 { font-size: 2.5rem; }
     .hero p { font-size: 1.1rem; }
-    nav .logo { font-size: 1rem; }
+    nav .logo { font-size: 1rem; } /* Ensures the long logo fits on small screens */
 }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">IMPRESS<br>YOURSELF</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#process">Process</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contact" class="nav-cta">Contact Us</a>
+            </div>
+            <button class="hamburger" id="hamburger-menu" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+        <div class="mobile-nav" id="mobile-nav-menu">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#process">Process</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contact">Contact Us</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Impress Yourself</h1>
+                <p>Your journey to self-improvement starts here.</p>
+                <a href="#contact" class="cta-button">Get Started</a>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="about-container">
+                <img src="image_new.png" alt="A woman smiling and looking confident.">
+                <div class="about-text">
+                    <h2>About Us</h2>
+                    <h3>We're here to help you shine.</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Personal Coaching</h3>
+                    <p>One-on-one coaching to help you identify and achieve your personal goals.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Workshops</h3>
+                    <p>Group workshops on topics like confidence building and public speaking.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Online Courses</h3>
+                    <p>Self-paced online courses to learn and grow at your own convenience.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="process">
+            <h2>Our Process</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Discovery Call</h3>
+                    <p>A free call to discuss your goals and see if we're a good fit.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Strategy Session</h3>
+                    <p>We'll develop a personalized plan to help you achieve your goals.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Implementation</h3>
+                    <p>We'll work together to implement your plan and track your progress.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Celebrate Success</h3>
+                    <p>We'll celebrate your achievements and plan for your continued growth.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>"This was the best investment I've made in myself. I'm more confident and focused than ever."</p>
+                    <span>- Jane D.</span>
+                </div>
+                <div class="testimonial-card">
+                    <p>"The coaching program helped me land my dream job. I couldn't have done it without their support."</p>
+                    <span>- John S.</span>
+                </div>
+                 <div class="testimonial-card">
+                    <p>"I finally launched my own business after years of procrastination. Thank you for believing in me!"</p>
+                    <span>- Sarah L.</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">What is personal coaching?</button>
+                    <div class="faq-answer" id="faq-answer-1">
+                        <p>Personal coaching is a process where a coach helps you identify your goals and develop a plan to achieve them. It's a partnership focused on your growth and success.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">Who can benefit from coaching?</button>
+                    <div class="faq-answer" id="faq-answer-2">
+                        <p>Anyone who is looking to make a positive change in their life can benefit from coaching. Whether you want to advance your career, improve your relationships, or start a new venture, a coach can help.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">How long does the coaching process take?</button>
+                    <div class="faq-answer" id="faq-answer-3">
+                        <p>The duration of coaching varies depending on your individual goals and needs. Some clients achieve their desired outcomes in a few months, while others may benefit from a longer-term partnership.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Ready to Impress Yourself?</h2>
+            <p>Let's connect and explore how we can work together to unlock your full potential. Schedule a free discovery call today.</p>
+            <a href="mailto:hello@impressyourself.com" class="cta-button">Schedule a Free Call</a>
+            <div class="contact-divider">OR</div>
+            <p>If you have other questions, feel free to send us a message using the form below.</p>
+            <form action="#">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="cta-button">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <h3>Impress Yourself</h3>
+            <p>Your journey to a more confident and fulfilling life starts now.</p>
+            <a href="#contact" class="cta-button">Get Started Today</a>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Impress Yourself. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -4,8 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Toggle mobile navigation
     hamburgerMenu.addEventListener('click', () => {
-        hamburgerMenu.classList.toggle('active');
+        const isActive = hamburgerMenu.classList.toggle('active');
         mobileNavMenu.classList.toggle('active');
+        hamburgerMenu.setAttribute('aria-expanded', isActive);
     });
 
     // Smooth scrolling for all anchor links and close mobile menu on click
@@ -21,11 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (targetElement) {
                     targetElement.scrollIntoView({ behavior: 'smooth' });
                 }
-                
+
                 // Close mobile nav if it's open
                 if (mobileNavMenu.classList.contains('active')) {
                     hamburgerMenu.classList.remove('active');
                     mobileNavMenu.classList.remove('active');
+                    hamburgerMenu.setAttribute('aria-expanded', 'false');
                 }
             }
         });
@@ -35,9 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const faqItems = document.querySelectorAll('.faq-item');
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+
         question.addEventListener('click', () => {
             const isActive = item.classList.contains('active');
-            
+
             // Close all other items for a cleaner accordion experience
             faqItems.forEach(i => {
                 if (i !== item) {
@@ -51,12 +55,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!isActive) {
                 item.classList.add('active');
                 question.setAttribute('aria-expanded', 'true');
-                const answer = item.querySelector('.faq-answer');
                 answer.style.maxHeight = answer.scrollHeight + "px";
             } else {
                 item.classList.remove('active');
                 question.setAttribute('aria-expanded', 'false');
-                item.querySelector('.faq-answer').style.maxHeight = null;
+                answer.style.maxHeight = null;
             }
         });
     });

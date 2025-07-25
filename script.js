@@ -38,11 +38,13 @@ document.addEventListener('DOMContentLoaded', () => {
         question.addEventListener('click', () => {
             const isActive = item.classList.contains('active');
             
-            // Optional: Close all other items
+            // Close all other items for a cleaner accordion experience
             faqItems.forEach(i => {
-                i.classList.remove('active');
-                i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-                i.querySelector('.faq-answer').style.maxHeight = null;
+                if (i !== item) {
+                    i.classList.remove('active');
+                    i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                    i.querySelector('.faq-answer').style.maxHeight = null;
+                }
             });
 
             // Toggle the clicked item
@@ -51,43 +53,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 question.setAttribute('aria-expanded', 'true');
                 const answer = item.querySelector('.faq-answer');
                 answer.style.maxHeight = answer.scrollHeight + "px";
+            } else {
+                item.classList.remove('active');
+                question.setAttribute('aria-expanded', 'false');
+                item.querySelector('.faq-answer').style.maxHeight = null;
             }
         });
     });
-
-    // Estimator functionality
-    const roomCheckboxes = document.querySelectorAll('input[name="room"]');
-    const estimatedTimeEl = document.getElementById('estimated-time');
-    const estimatedCostEl = document.getElementById('estimated-cost');
-
-    const roomHours = {
-        kitchen: 8,
-        pantry: 4,
-        closet: 6,
-        bedroom: 6,
-        basement: 12,
-        garage: 12
-    };
-    const hourlyRate = 50; // Example hourly rate
-
-    function updateEstimate() {
-        let totalHours = 0;
-        roomCheckboxes.forEach(checkbox => {
-            if (checkbox.checked) {
-                totalHours += roomHours[checkbox.value] || 0;
-            }
-        });
-
-        const totalCost = totalHours * hourlyRate;
-
-        estimatedTimeEl.textContent = `${totalHours} hours`;
-        estimatedCostEl.textContent = `$${totalCost}`;
-    }
-
-    roomCheckboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', updateEstimate);
-    });
-
-    // Initial calculation on page load
-    updateEstimate();
 });

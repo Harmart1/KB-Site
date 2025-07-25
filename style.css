@@ -66,6 +66,17 @@ nav .logo {
     font-size: 1.6rem;
     text-decoration: none;
     color: var(--primary-text);
+    display: flex;
+    align-items: center;
+}
+
+nav .logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+nav .logo span {
+    font-size: 1.2rem;
 }
 
 .nav-links a {

@@ -87,46 +87,61 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Before/After slider functionality
-    const slider = document.querySelector('.before-after-slider');
-    if (slider) {
-        const handle = slider.querySelector('.slider-handle');
-        const beforeImageContainer = slider.querySelector('.before-image-container');
+    // Virtual Organizing Tool functionality
+    const organizeItems = document.querySelectorAll('.organize-item');
+    const clutteredArea = document.getElementById('cluttered-area');
+    const organizedArea = document.getElementById('organized-area');
 
-        let isDragging = false;
+    if (organizeItems.length > 0 && clutteredArea && organizedArea) {
+        organizeItems.forEach(item => {
+            item.addEventListener('dragstart', (e) => {
+                e.dataTransfer.setData('text/plain', e.target.id);
+                setTimeout(() => {
+                    e.target.style.display = 'none';
+                }, 0);
+            });
 
-        const startDrag = (e) => {
-            isDragging = true;
-            slider.classList.add('dragging');
-            updateSlider(e);
-        };
+            item.addEventListener('dragend', (e) => {
+                e.target.style.display = 'block';
+            });
+        });
 
-        const stopDrag = () => {
-            isDragging = false;
-            slider.classList.remove('dragging');
-        };
+        organizedArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            organizedArea.classList.add('over');
+        });
 
-        const updateSlider = (e) => {
-            if (!isDragging) return;
+        organizedArea.addEventListener('dragleave', () => {
+            organizedArea.classList.remove('over');
+        });
 
-            const sliderRect = slider.getBoundingClientRect();
-            let offsetX = (e.clientX || e.touches[0].clientX) - sliderRect.left;
-            let percentage = (offsetX / sliderRect.width) * 100;
+        organizedArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            const id = e.dataTransfer.getData('text');
+            const draggableElement = document.getElementById(id);
+            if (draggableElement) {
+                organizedArea.appendChild(draggableElement);
+            }
+            organizedArea.classList.remove('over');
+        });
 
-            // Clamp the percentage between 0 and 100
-            percentage = Math.max(0, Math.min(100, percentage));
+        clutteredArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            clutteredArea.classList.add('over');
+        });
 
-            handle.style.left = `${percentage}%`;
-            beforeImageContainer.style.width = `${percentage}%`;
-        };
+        clutteredArea.addEventListener('dragleave', () => {
+            clutteredArea.classList.remove('over');
+        });
 
-        handle.addEventListener('mousedown', startDrag);
-        document.addEventListener('mouseup', stopDrag);
-        document.addEventListener('mouseleave', stopDrag);
-        slider.addEventListener('mousemove', updateSlider);
-
-        handle.addEventListener('touchstart', startDrag);
-        document.addEventListener('touchend', stopDrag);
-        slider.addEventListener('touchmove', updateSlider);
+        clutteredArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            const id = e.dataTransfer.getData('text');
+            const draggableElement = document.getElementById(id);
+            if (draggableElement) {
+                clutteredArea.appendChild(draggableElement);
+            }
+            clutteredArea.classList.remove('over');
+        });
     }
 });

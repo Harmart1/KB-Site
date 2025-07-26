@@ -121,6 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const draggableElement = document.getElementById(id);
             if (draggableElement) {
                 organizedArea.appendChild(draggableElement);
+                draggableElement.style.display = 'block';
             }
             organizedArea.classList.remove('over');
         });
@@ -140,6 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const draggableElement = document.getElementById(id);
             if (draggableElement) {
                 clutteredArea.appendChild(draggableElement);
+                draggableElement.style.display = 'block';
             }
             clutteredArea.classList.remove('over');
         });

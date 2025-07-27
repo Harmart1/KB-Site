@@ -107,25 +107,21 @@ nav .logo {
     text-align: center;
     height: 90vh;
     background: url('image_new.png') no-repeat center center/cover;
-    color: white;
     position: relative;
 }
 
-
 .hero-text {
-    z-index: 2;
+    /* z-index is no longer needed */
 }
 
 .hero h1 {
     font-size: 4rem;
     margin-bottom: 1rem;
-    color: white;
 }
 
 .hero p {
     font-size: 1.5rem;
     font-weight: 300;
-    color: white;
 }
 
 

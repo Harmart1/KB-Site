@@ -78,7 +78,8 @@ nav .logo {
     text-decoration: none;
     color: var(--secondary-text);
     font-weight: 400;
-    margin-left: 2rem;
+    margin-left: 1rem;
+    font-size: 0.9rem;
     transition: color 0.3s ease;
 }
 
@@ -117,7 +118,7 @@ nav .logo {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0);
     z-index: 1;
 }
 

@@ -48,6 +48,10 @@
 
     <main>
         <section class="hero">
+            <div class="hero-text">
+                <h1>Impress Yourself</h1>
+                <p>Unlock Your Potential, Organize Your Life</p>
+            </div>
         </section>
         <div class="cta-container">
             <a href="#contact" class="cta-button">Get Started</a>
@@ -95,22 +99,42 @@
         </section>
 
 
-        <section id="organize-tool">
-            <h2>Interactive Organizing Tool</h2>
+        <section id="ai-organizer">
+            <h2>AI-Powered Organizer</h2>
             <p class="tool-description">
-                Experience the satisfaction of a tidy space. Drag the cluttered items from the left box and drop them into the organized box on the right to see the transformation.
+                Get a personalized organization plan in seconds. Answer a few questions about your space and goals, and our AI will create a custom plan to help you declutter and organize your life.
             </p>
-            <div class="organize-container">
-                <div id="cluttered-area" class="organize-area">
-                    <h3>Cluttered</h3>
-                    <img src="https://images.pexels.com/photos/5824901/pexels-photo-5824901.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="A pile of clothes" class="organize-item" draggable="true" id="item1">
-                    <img src="https://images.pexels.com/photos/1390403/pexels-photo-1390403.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="A stack of papers" class="organize-item" draggable="true" id="item2">
-                    <img src="https://images.pexels.com/photos/276554/pexels-photo-276554.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="A messy shelf" class="organize-item" draggable="true" id="item3">
-                    <img src="https://images.pexels.com/photos/3756879/pexels-photo-3756879.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="A cluttered table" class="organize-item" draggable="true" id="item4">
+            <form id="ai-organizer-form">
+                <div class="form-group">
+                    <label for="room-type">What room do you want to organize?</label>
+                    <select id="room-type" name="room-type">
+                        <option value="living-room">Living Room</option>
+                        <option value="bedroom">Bedroom</option>
+                        <option value="kitchen">Kitchen</option>
+                        <option value="home-office">Home Office</option>
+                    </select>
                 </div>
-                <div id="organized-area" class="organize-area">
-                    <h3>Organized</h3>
+                <div class="form-group">
+                    <label for="clutter-level">How cluttered is the room?</label>
+                    <select id="clutter-level" name="clutter-level">
+                        <option value="low">A little cluttered</option>
+                        <option value="medium">Moderately cluttered</option>
+                        <option value="high">Very cluttered</option>
+                    </select>
                 </div>
+                <div class="form-group">
+                    <label for="time-commitment">How much time can you commit per day?</label>
+                    <select id="time-commitment" name="time-commitment">
+                        <option value="15-mins">15 minutes</option>
+                        <option value="30-mins">30 minutes</option>
+                        <option value="1-hour">1 hour</option>
+                    </select>
+                </div>
+                <button type="submit" class="cta-button">Generate Plan</button>
+            </form>
+            <div id="ai-plan-container" style="display: none;">
+                <h3>Your Personalized Plan</h3>
+                <p id="ai-plan"></p>
             </div>
         </section>
 

@@ -87,63 +87,49 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Virtual Organizing Tool functionality
-    const organizeItems = document.querySelectorAll('.organize-item');
-    const clutteredArea = document.getElementById('cluttered-area');
-    const organizedArea = document.getElementById('organized-area');
-
-    if (organizeItems.length > 0 && clutteredArea && organizedArea) {
-        organizeItems.forEach(item => {
-            item.addEventListener('dragstart', (e) => {
-                e.dataTransfer.setData('text/plain', e.target.id);
-                setTimeout(() => {
-                    e.target.style.display = 'none';
-                }, 0);
-            });
-
-            item.addEventListener('dragend', (e) => {
-                e.target.style.display = 'block';
-            });
-        });
-
-        organizedArea.addEventListener('dragover', (e) => {
+    // AI Organizer functionality
+    const aiOrganizerForm = document.getElementById('ai-organizer-form');
+    if (aiOrganizerForm) {
+        aiOrganizerForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            organizedArea.classList.add('over');
-        });
+            const roomType = document.getElementById('room-type').value;
+            const clutterLevel = document.getElementById('clutter-level').value;
+            const timeCommitment = document.getElementById('time-commitment').value;
 
-        organizedArea.addEventListener('dragleave', () => {
-            organizedArea.classList.remove('over');
-        });
+            // This is a simplified plan generator. A real implementation would use a more complex algorithm or an AI model.
+            const plan = generatePlan(roomType, clutterLevel, timeCommitment);
 
-        organizedArea.addEventListener('drop', (e) => {
-            e.preventDefault();
-            const id = e.dataTransfer.getData('text');
-            const draggableElement = document.getElementById(id);
-            if (draggableElement) {
-                organizedArea.appendChild(draggableElement);
-                draggableElement.style.display = 'block';
-            }
-            organizedArea.classList.remove('over');
-        });
+            const planContainer = document.getElementById('ai-plan-container');
+            const planElement = document.getElementById('ai-plan');
 
-        clutteredArea.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            clutteredArea.classList.add('over');
+            planElement.innerText = plan;
+            planContainer.style.display = 'block';
         });
+    }
 
-        clutteredArea.addEventListener('dragleave', () => {
-            clutteredArea.classList.remove('over');
-        });
+    function generatePlan(room, clutter, time) {
+        let plan = `Here is your personalized plan for organizing your ${room.replace('-', ' ')}:\n\n`;
 
-        clutteredArea.addEventListener('drop', (e) => {
-            e.preventDefault();
-            const id = e.dataTransfer.getData('text');
-            const draggableElement = document.getElementById(id);
-            if (draggableElement) {
-                clutteredArea.appendChild(draggableElement);
-                draggableElement.style.display = 'block';
-            }
-            clutteredArea.classList.remove('over');
-        });
+        switch (clutter) {
+            case 'low':
+                plan += 'Since your room is only a little cluttered, you can probably get it organized in a day or two. ';
+                break;
+            case 'medium':
+                plan += 'With a moderately cluttered room, it might take a weekend to get everything in order. ';
+                break;
+            case 'high':
+                plan += 'Your room is very cluttered, so it will likely take several days to a week to fully organize. Don\'t get discouraged! ';
+                break;
+        }
+
+        plan += `You've committed to spending ${time.replace('-', ' ')} per day on this project.\n\n`;
+
+        plan += 'Here are your first three steps:\n';
+        plan += '1. Start by removing any trash or items that clearly don\'t belong in the room.\n';
+        plan += '2. Next, sort the remaining items into three piles: Keep, Donate, and Discard.\n';
+        plan += '3. Finally, put away the items you are keeping in a logical and organized manner.\n\n';
+        plan += 'Good luck!';
+
+        return plan;
     }
 });

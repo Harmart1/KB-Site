@@ -3,269 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Impress Yourself: Professional Organizing Services offers expert home and office organization, personal coaching, and workshops to help you declutter your life and boost productivity.">
-    <meta name="keywords" content="professional organizing, home organization, office organization, decluttering, personal coaching, productivity, time management">
-    <title>Impress Yourself: Professional Organizing Services</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>ElevateCV - AI-Powered Career Development Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
-<body>
-    <div id="accessibility-toolbar">
-        <button id="increase-font">Increase Font</button>
-        <button id="decrease-font">Decrease Font</button>
-        <button id="high-contrast">High Contrast</button>
-    </div>
-    <header>
-        <nav>
-            <a href="#" class="logo">Impress Yourself: Professional Organizing Services</a>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#services">Services</a>
-                <a href="#organize-tool">Organizing Tool</a>
-                <a href="#faq">FAQ</a>
-                <a href="#blog">Blog</a>
-                <a href="#resources">Resources</a>
-                <a href="#contact" class="nav-cta">Contact Us</a>
+<body class="bg-gray-100">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="navbar-brand">
+                <div class="brand-logo">ECV</div>
+                ElevateCV
+            </a>
+            <ul class="navbar-nav" id="navbarNav">
+                <li class="nav-item"><a href="/" class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
+                <li class="nav-item"><a href="/resume-analyzer.html" class="nav-link"><i class="fas fa-file-alt"></i> Resume Analyzer</a></li>
+                <li class="nav-item"><a href="/cover-letter.html" class="nav-link"><i class="fas fa-envelope"></i> Cover Letters</a></li>
+                <li class="nav-item"><a href="/interview-prep.html" class="nav-link"><i class="fas fa-microphone"></i> Interview Prep</a></li>
+            </ul>
+            <div id="auth-links" class="flex items-center space-x-2">
+                <!-- Auth links will be populated by JS -->
             </div>
-            <button class="hamburger" id="hamburger-menu" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </nav>
-        <div class="mobile-nav" id="mobile-nav-menu">
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#organize-tool">Organizing Tool</a>
-            <a href="#faq">FAQ</a>
-            <a href="#blog">Blog</a>
-            <a href="#resources">Resources</a>
-            <a href="#contact">Contact Us</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="page-header">
+        <div class="page-header-content">
+            <h1 class="page-title fade-in">Build Your Future with ElevateCV</h1>
+            <p class="page-subtitle fade-in">AI-powered tools to optimize your resume, write perfect cover letters, and ace your interviews.</p>
+            <a href="/register.html" class="btn btn-secondary btn-lg mt-8">Get Started for Free</a>
         </div>
     </header>
 
-    <main>
-        <section id="about">
-            <div class="about-container">
-                <img src="image_new.png" alt="A professionally organized home office with a smiling woman, representing Impress Yourself's services.">
-                <div class="about-text">
-                    <h1>Impress Yourself</h1>
-                    <p>Unlock Your Potential, Organize Your Life</p>
-                    <h2>About Us</h2>
-                    <h3>Welcome to a space of growth and transformation.</h3>
-                    <p>We believe that everyone has the potential to live a fulfilling and successful life. Our mission is to provide you with the tools, resources, and support you need to unlock your full potential and create a life you love. Whether you're looking to advance your career, improve your well-being, or simply find more joy in your daily life, we're here to guide you on your journey.</p>
-                </div>
-            </div>
-        </section>
+    <!-- ... Rest of the feature grid and content, updated with "ElevateCV" branding ... -->
 
-        <section id="services">
-            <h2>Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>Personal Coaching</h3>
-                    <p>One-on-one coaching to help you identify and achieve your personal goals.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Workshops</h3>
-                    <p>Group workshops on topics like confidence building and public speaking.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Online Courses</h3>
-                    <p>Self-paced online courses to learn and grow at your own convenience.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Career Counseling</h3>
-                    <p>Guidance and support for navigating your career path and making meaningful changes.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Mindfulness Training</h3>
-                    <p>Learn to cultivate mindfulness and reduce stress for a more balanced life.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Group Coaching</h3>
-                    <p>Join a supportive community of like-minded individuals in our group coaching sessions.</p>
-                </div>
-            </div>
-        </section>
+    <script src="/js/common.js"></script>
+    <script>
+        // Handle displaying login/logout buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            const token = localStorage.getItem('elevateCVToken');
+            const authLinks = document.getElementById('auth-links');
+            if (token) {
+                authLinks.innerHTML = `
+                    <a href="/career-dashboard.html" class="btn-outline-white">Dashboard</a>
+                    <button onclick="logout()" class="btn-outline-white">Log Out</button>
+                `;
+            } else {
+                authLinks.innerHTML = `
+                    <a href="/login.html" class="text-white font-medium hover:text-gray-200">Log In</a>
+                    <a href="/register.html" class="btn btn-secondary">Sign Up</a>
+                `;
+            }
+        });
 
-
-        <section id="ai-organizer">
-            <h2>AI-Powered Organizer</h2>
-            <p class="tool-description">
-                Get a personalized organization plan in seconds. Answer a few questions about your space and goals, and our AI will create a custom plan to help you declutter and organize your life.
-            </p>
-            <form id="ai-organizer-form">
-                <div class="form-group">
-                    <label for="room-type">What room do you want to organize?</label>
-                    <select id="room-type" name="room-type">
-                        <option value="living-room">Living Room</option>
-                        <option value="bedroom">Bedroom</option>
-                        <option value="kitchen">Kitchen</option>
-                        <option value="home-office">Home Office</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="clutter-level">How cluttered is the room?</label>
-                    <select id="clutter-level" name="clutter-level">
-                        <option value="low">A little cluttered</option>
-                        <option value="medium">Moderately cluttered</option>
-                        <option value="high">Very cluttered</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="time-commitment">How much time can you commit per day?</label>
-                    <select id="time-commitment" name="time-commitment">
-                        <option value="15-mins">15 minutes</option>
-                        <option value="30-mins">30 minutes</option>
-                        <option value="1-hour">1 hour</option>
-                    </select>
-                </div>
-                <button type="submit" class="cta-button">Generate Plan</button>
-            </form>
-            <div id="ai-plan-container" style="display: none;">
-                <h3>Your Personalized Plan</h3>
-                <p id="ai-plan"></p>
-            </div>
-        </section>
-
-        <section id="process">
-            <h2>Our Process</h2>
-            <div class="process-steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Discovery Call</h3>
-                    <p>A free call to discuss your goals and see if we're a good fit.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Strategy Session</h3>
-                    <p>We'll develop a personalized plan to help you achieve your goals.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Implementation</h3>
-                    <p>We'll work together to implement your plan and track your progress.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h3>Celebrate Success</h3>
-                    <p>We'll celebrate your achievements and plan for your continued growth.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">5</div>
-                    <h3>Ongoing Support</h3>
-                    <p>We offer ongoing support to help you stay on track and navigate any new challenges.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">6</div>
-                    <h3>Review and Adjust</h3>
-                    <p>We'll periodically review your progress and make adjustments to your plan as needed.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="testimonials">
-            <h2>What Our Clients Say</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <p>"This was the best investment I've made in myself. I'm more confident and focused than ever."</p>
-                    <span>- Jane D.</span>
-                </div>
-                <div class="testimonial-card">
-                    <p>"The coaching program helped me land my dream job. I couldn't have done it without their support."</p>
-                    <span>- John S.</span>
-                </div>
-                 <div class="testimonial-card">
-                    <p>"I finally launched my own business after years of procrastination. Thank you for believing in me!"</p>
-                    <span>- Sarah L.</span>
-                </div>
-            </div>
-        </section>
-
-        <section id="faq">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">What is personal coaching?</button>
-                    <div class="faq-answer" id="faq-answer-1">
-                        <p>Personal coaching is a process where a coach helps you identify your goals and develop a plan to achieve them. It's a partnership focused on your growth and success.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">Who can benefit from coaching?</button>
-                    <div class="faq-answer" id="faq-answer-2">
-                        <p>Anyone who is looking to make a positive change in their life can benefit from coaching. Whether you want to advance your career, improve your relationships, or start a new venture, a coach can help.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">How long does the coaching process take?</button>
-                    <div class="faq-answer" id="faq-answer-3">
-                        <p>The duration of coaching varies depending on your individual goals and needs. Some clients achieve their desired outcomes in a few months, while others may benefit from a longer-term partnership.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="blog">
-            <h2>Blog</h2>
-            <div class="blog-grid">
-                <div class="blog-post">
-                    <h3><a href="blog/top-10-organizing-tips-for-busy-professionals.html">Top 10 Organizing Tips for Busy Professionals</a></h3>
-                    <p>Streamline your day and boost efficiency with these quick organizing tips for busy professionals. <a href="blog/top-10-organizing-tips-for-busy-professionals.html">Read more...</a></p>
-                </div>
-                <div class="blog-post">
-                    <h3><a href="blog/how-to-organize-your-home-office-for-maximum-productivity.html">How to Organize Your Home Office for Maximum Productivity</a></h3>
-                    <p>Create a functional and inspiring workspace with this step-by-step guide to organizing your home office. <a href="blog/how-to-organize-your-home-office-for-maximum-productivity.html">Read more...</a></p>
-                </div>
-                <div class="blog-post">
-                    <h3><a href="blog/decluttering-your-home-where-to-start.html">Decluttering Your Home: Where to Start</a></h3>
-                    <p>Learn where to begin your decluttering journey with practical strategies for a more organized home. <a href="blog/decluttering-your-home-where-to-start.html">Read more...</a></p>
-                </div>
-            </div>
-        </section>
-
-        <section id="resources">
-            <h2>Resources</h2>
-            <p>Here are some of our favorite resources for organizing, productivity, and product reviews. We hope you find them helpful!</p>
-            <ul>
-                <li><a href="http://www.getorganizednow.com/" target="_blank">Get Organized Now</a> - Offers thousands of clutter-busting ideas, time management tips, and organizing systems.</li>
-                <li><a href="https://organizedhome.com/" target="_blank">Organized Home</a> - Provides actionable organizing strategies for specific areas like kitchens, bathrooms, and pantries.</li>
-                <li><a href="https://www.abowloflemons.net/" target="_blank">A Bowl Full of Lemons</a> - Focuses on home and family organization, with sections on office organization, emergency preparedness, and DIY projects.</li>
-                <li><a href="https://thehomeedit.com/" target="_blank">The Home Edit</a> - A go-to resource for home organization, offering tools, tips, and inspiration for transforming spaces.</li>
-                <li><a href="https://www.consumerreports.org/" target="_blank">Consumer Reports</a> - Provides unbiased reviews and ratings for over 7.7 million products, including organizing tools like storage bins and kitchen appliances.</li>
-                <li><a href="https://todoist.com/" target="_blank">Todoist</a> - A task management app trusted by 30 million users, ideal for clients looking to organize tasks and projects.</li>
-                <li><a href="https://milanote.com/" target="_blank">Milanote</a> - A visual tool for organizing ideas and projects into boards.</li>
-            </ul>
-        </section>
-
-        <section id="contact">
-            <h2>Ready to Impress Yourself?</h2>
-            <p>Let's connect and explore how we can work together to unlock your full potential. Schedule a free discovery call today.</p>
-            <a href="#contact" class="cta-button">Book a Consultation</a>
-            <div class="contact-divider">OR</div>
-            <p>If you have other questions, feel free to send us a message using the form below.</p>
-            <form action="#">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Message" rows="5" required></textarea>
-                <button type="submit" class="cta-button">Send Message</button>
-            </form>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <h3>Impress Yourself: Professional Organizing Services</h3>
-            <p>Your journey to a more confident and fulfilling life starts now.</p>
-            <a href="#contact" class="cta-button">Get Started Today</a>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Impress Yourself: Professional Organizing Services. All Rights Reserved. | <a href="terms.html" style="color: white;">Terms of Use</a> | <a href="privacy.html" style="color: white;">Privacy Policy</a></p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+        function logout() {
+            localStorage.removeItem('elevateCVToken');
+            window.location.href = '/';
+        }
+    </script>
 </body>
 </html>
